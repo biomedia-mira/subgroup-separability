@@ -1,0 +1,9 @@
+_target_: datasets.dataset.FairnessDataModule
+split_dir: splits/fitzpatrick17k
+data_dir: /mnt/fitzpatrick17k/
+sensitive_attribute: SkinType
+dataset_name: Fitzpatrick17k
+batch_size: 256
+num_workers: 10
+pin_memory: True
+label_noise: 0.15

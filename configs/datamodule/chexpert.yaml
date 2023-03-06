@@ -1,0 +1,9 @@
+_target_: datasets.dataset.FairnessDataModule
+split_dir: splits/chexpert
+data_dir: /mnt/CheXpert-v1.0/
+sensitive_attribute: Age
+dataset_name: Chexpert
+batch_size: 256
+num_workers: 10
+pin_memory: True
+label_noise: 0.15

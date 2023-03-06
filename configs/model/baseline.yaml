@@ -1,0 +1,4 @@
+
+_target_: models.baseline.Baseline
+lr: 0.0002
+predict_attr: False

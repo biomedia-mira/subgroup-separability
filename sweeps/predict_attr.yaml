@@ -1,0 +1,35 @@
+program: main.py
+project: subgroup_separability
+method: grid
+parameters:
+  rng:
+    values: [0, 42, 100, 200, 300, 400, 500, 600, 700, 800]
+
+  experiment:
+    values:
+      - chexpert_age
+      - chexpert_sex
+      - chexpert_race
+      - mimic_age
+      - mimic_sex
+      - mimic_race
+      - ham10000_age
+      - ham10000_sex
+      - papila_age
+      - papila_sex
+      - fitzpatrick17k_skin
+
+  datamodule.label_noise:
+    values: [0.0]
+
+  model:
+    values: ["baseline"]
+
+  model.predict_attr:
+    values: [True]
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens}

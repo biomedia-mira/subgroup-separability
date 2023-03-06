@@ -1,0 +1,6 @@
+# @package _global_
+
+# experiments are used to override the default config
+# for a datamodule
+
+# default experiment does not override anything
