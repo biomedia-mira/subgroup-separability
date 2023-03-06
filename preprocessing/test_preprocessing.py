@@ -20,7 +20,8 @@ class DatasetSplits:
 
 
 @pytest.fixture(
-    name="dataset_splits", params=["ham10000", "chexpert", "mimic", "papila", "fitzpatrick17k"]
+    name="dataset_splits",
+    params=["ham10000", "chexpert", "mimic", "papila", "fitzpatrick17k"],
 )
 def _dataset_splits(request) -> DatasetSplits:
     if request.param == "ham10000":
@@ -30,17 +31,17 @@ def _dataset_splits(request) -> DatasetSplits:
 
     elif request.param == "chexpert":
         SPLIT_DIR = "splits/chexpert/"
-        DATA_DIR = "/mnt/chest_xray/CheXpert-v1.0/"
+        DATA_DIR = "/mnt/CheXpert-v1.0/"
         SENSITIVE_ATTRIBUTES = ("Age", "Race", "Sex")
 
     elif request.param == "mimic":
         SPLIT_DIR = "splits/mimic/"
-        DATA_DIR = "/mnt/chest_xray/mimic-cxr-jpg-224/data/"
+        DATA_DIR = "/mnt/mimic-cxr-jpg-224/data/"
         SENSITIVE_ATTRIBUTES = ("Age", "Race", "Sex")
 
     elif request.param == "papila":
         SPLIT_DIR = "splits/papila/"
-        DATA_DIR = "/mnt/PAPILA/"
+        DATA_DIR = "/mnt/papila/"
         SENSITIVE_ATTRIBUTES = ("Age", "Sex")
 
     elif request.param == "fitzpatrick17k":
