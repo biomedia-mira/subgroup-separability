@@ -1,6 +1,6 @@
-# Subgroup Separability
+# The Role of Subgroup Separability in Group-Fair Medical Image Classification
 
-Repository is anonymised for review.
+This repository is anonymised for peer review.
 
 ## Abstract
 
