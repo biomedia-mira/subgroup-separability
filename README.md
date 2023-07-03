@@ -14,7 +14,7 @@ The preprocessing notebooks explain how to download the data, preprocess it, and
 
 All experiments can be run through the main file. Run `python main.py -h` to see the available configuration.
 
-Two preconfigured sweeps are provided in the `sweeps/` directory. Run both of these to reproduce all the experiments in the paper. See `sweeps/README.md` for more information.
+Three preconfigured sweeps are provided in the `sweeps/` directory. Run these to reproduce all the experiments in the paper. See `sweeps/README.md` for more information.
 
 Once you've run the sweeps, we provide a notebook to analyze the results and reproduce our figures.
 
