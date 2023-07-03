@@ -61,7 +61,20 @@ class FairnessDataset(Dataset):
         self.data_dir = data_dir
         self.sensitive_attribute = sensitive_attribute
 
-        self.label_noise = label_noise
+        # we pre-compute which labels to flip to prevent the same individuals from
+        # having different labels in different epochs
+        self.labels_to_flip = []
+        if label_noise > 0.0:
+            for idx, row in self.split_df.iterrows():
+                # only positive labels in group 1 are flipped
+                if (
+                    row["binaryLabel"] == 1
+                    and row[self.sensitive_attribute.value["Key"]] == 1
+                    and torch.rand(1).item() < label_noise
+                ):
+                    self.labels_to_flip.append(idx)
+
+        print(f"Flipping {len(self.labels_to_flip)} labels in {split} set.")
 
     def __getitem__(self, idx) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         img_path = os.path.join(self.data_dir, self.split_df.iloc[idx]["Path"])
@@ -71,13 +84,12 @@ class FairnessDataset(Dataset):
 
         label = self.split_df.iloc[idx]["binaryLabel"]
         label = torch.tensor(label, dtype=torch.long)
+
+        if idx in self.labels_to_flip:
+            label = 1 - label
+
         subgroup = self.split_df.iloc[idx][self.sensitive_attribute.value["Key"]]
         subgroup = torch.tensor(subgroup, dtype=torch.long)
-
-        # label noise is applied by mislabelling the positive class in subgroup 1
-        if self.label_noise > 0.0 and subgroup == 1 and label == 1:
-            if torch.rand(1) < self.label_noise:
-                label = torch.tensor(0, dtype=torch.long)
 
         return img, label, subgroup
 
