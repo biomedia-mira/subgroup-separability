@@ -1,6 +1,7 @@
 from typing import Dict
-import sklearn.metrics as skm
+
 import numpy as np
+import sklearn.metrics as skm
 
 
 def compute_overall_metrics(
@@ -21,11 +22,6 @@ def compute_overall_metrics(
     Returns:
         Dict[str, float]: Dictionary of scalar metrics. Includes:
         - accuracy
-        - PPV (precision for positive class)
-        - NPV (precision for negative class)
-        - TPR (recall for positive class; sensitivity)
-        - TNR (recall for negative class; specificity)
-        - f1 (positive class)
         - auc (area under the ROC curve)
     """
     preds = (scores > threshold).astype(int)
@@ -37,11 +33,6 @@ def compute_overall_metrics(
 
     return {
         "accuracy": report["accuracy"],  # type: ignore
-        "PPV": report["positive_class"]["precision"],  # type: ignore
-        "NPV": report["negative_class"]["precision"],  # type: ignore
-        "TPR": report["positive_class"]["recall"],  # type: ignore
-        "TNR": report["negative_class"]["recall"],  # type: ignore
-        "f1": report["positive_class"]["f1-score"],  # type: ignore
         "auc": skm.roc_auc_score(y_true=labels, y_score=scores),  # type: ignore
     }
 
@@ -69,9 +60,6 @@ def compute_fairness_metrics(
     Returns:
         Dict[str, float]: Dictionary of scalar metrics. Includes:
         - accuracy for each subgroup
-        - auc for each subgroup
-        - TPR for each subgroup
-        - balanced accuracy for each subgroup
         - disease prevalence for each subgroup
         - prevalence of each subgroup within dataset
     """
@@ -82,13 +70,6 @@ def compute_fairness_metrics(
     target_names = ["negative_class", "positive_class"]
 
     group_0_mask = attributes == 0
-
-    auc_group_0 = skm.roc_auc_score(
-        y_true=labels[group_0_mask], y_score=scores[group_0_mask]
-    )
-    auc_group_1 = skm.roc_auc_score(
-        y_true=labels[~group_0_mask], y_score=scores[~group_0_mask]
-    )
 
     report_group_0 = skm.classification_report(
         y_pred=preds[group_0_mask],
@@ -132,10 +113,4 @@ def compute_fairness_metrics(
         "disease_prevalence_group_1": disease_prevalence_group_1,
         "prevalence_group_0": prevalence_group_0,
         "prevalence_group_1": prevalence_group_1,
-        "auc_group_0": auc_group_0,
-        "auc_group_1": auc_group_1,
-        "tpr_group_0": tpr_group_0,
-        "tpr_group_1": tpr_group_1,
-        "balanced_acc_group_0": balanced_acc_group_0,
-        "balanced_acc_group_1": balanced_acc_group_1,
     }  # type: ignore
