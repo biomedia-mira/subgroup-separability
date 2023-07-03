@@ -2,7 +2,7 @@
 name = "subgroup-separability"
 version = "1.0.0"
 description = ""
-authors = ["Anoymous Authors <anon@peer.review>"]
+authors = ["C Jones <charles.jones17@imperial.ac.uk>"]
 readme = "README.md"
 packages = [{include = "subgroup_separability"}]
 
