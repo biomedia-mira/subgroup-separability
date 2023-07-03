@@ -1,0 +1,7 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: fitzpatrick17k.yaml
+
+datamodule:
+  sensitive_attribute: SkinType

@@ -1,0 +1,42 @@
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens}
+method: grid
+parameters:
+  datamodule.label_noise:
+    values:
+      - 0
+      - 0.125
+      - 0.25
+      - 0.375
+      - 0.5
+  experiment:
+    values:
+      - chexpert_age
+      - chexpert_sex
+      - chexpert_race
+      - mimic_age
+      - mimic_sex
+      - mimic_race
+      - ham10000_age
+      - ham10000_sex
+      - papila_age
+      - papila_sex
+      - fitzpatrick17k_skin
+  model:
+    values:
+      - baseline
+  model.predict_attr:
+    values:
+      - false
+  split_test:
+    values: [false]
+  rng:
+    values:
+      - 0
+      - 1
+      - 2
+program: main.py
+project: subgroup_separability

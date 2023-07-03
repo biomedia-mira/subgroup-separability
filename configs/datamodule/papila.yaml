@@ -1,0 +1,10 @@
+
+_target_: datasets.dataset.FairnessDataModule
+split_dir: splits/papila
+data_dir: /mnt/papila/
+sensitive_attribute: Age
+dataset_name: Papila
+batch_size: 32 # papila is tiny so we use a small batch size
+num_workers: 10
+pin_memory: True
+label_noise: 0.15

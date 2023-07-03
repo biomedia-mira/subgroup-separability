@@ -1,0 +1,20 @@
+defaults:
+  - _self_
+  # configs here will sequentially append (overriding anything that already exists)
+  - datamodule: ham10000.yaml
+  - model: baseline.yaml
+
+  - experiment: default.yaml
+
+project_name: subgroup_separability
+rng: 0
+num_epochs: 50
+csv_logger: True
+wandb_logger: True
+tb_logger: False
+mixed_precision: True
+enable_checkpointing: False
+early_stopping: 5 # set to False to disable, else an integer for patience param
+
+# whether to perform the supervised prediction layer information test
+split_test: True

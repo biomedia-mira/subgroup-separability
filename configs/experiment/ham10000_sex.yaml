@@ -1,0 +1,7 @@
+# @package _global_
+
+defaults:
+  - override /datamodule: ham10000.yaml
+
+datamodule:
+  sensitive_attribute: sex

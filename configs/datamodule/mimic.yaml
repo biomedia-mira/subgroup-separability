@@ -1,0 +1,9 @@
+_target_: datasets.dataset.FairnessDataModule
+split_dir: splits/mimic
+data_dir: /mnt/mimic-cxr-jpg-224/data/
+sensitive_attribute: Age
+dataset_name: Mimic
+batch_size: 256
+num_workers: 10
+pin_memory: True
+label_noise: 0.15
