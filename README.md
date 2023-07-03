@@ -1,6 +1,6 @@
 # The Role of Subgroup Separability in Group-Fair Medical Image Classification
 
-This repository is anonymised for peer review.
+MICCAI 2023 Accepted
 
 ## Abstract
 
