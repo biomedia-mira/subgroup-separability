@@ -1,6 +1,19 @@
 # The Role of Subgroup Separability in Group-Fair Medical Image Classification
 
-MICCAI 2023 Accepted
+This repository contains code for the paper:
+> C. Jones, M. Roschewitz, B. Glocker. _The Role of Subgroup Separability in Group-Fair Medical Image Classification_. 2023. [[ArXiv]](https://arxiv.org/abs/2307.02791).
+
+This paper has been accepted for MICCAI 2023 :smiley:. The proceedings will be available later in the year. Until then, please cite the ArXiv version:
+```
+@misc{jones2023role,
+      title={The Role of Subgroup Separability in Group-Fair Medical Image Classification}, 
+      author={Charles Jones and Mélanie Roschewitz and Ben Glocker},
+      year={2023},
+      eprint={2307.02791},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 ## Abstract
 
