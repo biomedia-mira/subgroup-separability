@@ -1,7 +1,7 @@
 # The Role of Subgroup Separability in Group-Fair Medical Image Classification
 
 This repository contains code for the paper:
-> C. Jones, M. Roschewitz, B. Glocker. _The Role of Subgroup Separability in Group-Fair Medical Image Classification_. 2023.[[MICCAI]](https://doi.org/10.1007/978-3-031-43898-1_18)[[arXiv]](https://arxiv.org/abs/2307.02791)[[Poster]](MICCAIPoster.pdf).
+> C. Jones, M. Roschewitz, B. Glocker. _The Role of Subgroup Separability in Group-Fair Medical Image Classification_. 2023.[[MICCAI]](https://doi.org/10.1007/978-3-031-43898-1_18)[[arXiv]](https://arxiv.org/abs/2307.02791)[[Poster]](https://github.com/biomedia-mira/subgroup-separability/blob/main/MICCAIPoster.pdf).
 
 If you build on this work in your publications, please consider citing the MICCAI version of our paper 😄. We include an example BibTeX entry below: 
 ```
